@@ -1,5 +1,6 @@
-# generator-alexa [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Generates alexa bots easely
+# generator-alexa [![NPM version][npm-image]][npm-url] [![Dependency Status](https://david-dm.org/jseijas/generator-alexa/status.svg)](https://david-dm.org/jseijas/generator-alexa)
+
+> Generates alexa applications in a simple way.
 
 ## Installation
 
