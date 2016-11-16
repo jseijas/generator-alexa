@@ -1,6 +1,6 @@
 {
   "name": "generator-alexa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This is a yeoman generator that makes easy the task of doing alexa node applications",
   "homepage": "",
   "author": {
