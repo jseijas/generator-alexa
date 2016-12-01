@@ -6,8 +6,8 @@ class <%= capitalizedIntentName %>Intent {
   }
 
   execute(req, res) {
-    response.say('<%= responseText %>');
-    response.shouldEndSession(<%= shouldEndSession %>);    
+    res.say('<%= responseText %>');
+    res.shouldEndSession(<%= shouldEndSession %>);
   }
 }
 
