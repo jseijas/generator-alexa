@@ -27,7 +27,7 @@ class AlexaApp {
     this.app = new alexa.app(this.name);
     this.app.launch(function(req, res) {
         res.say('<%= welcomeAnswer %>');
-        response.shouldEndSession(<%= shouldEndSession %>);
+        res.shouldEndSession(<%= shouldEndSession %>);
     });
     this.app.express(this.server, '/echo/');
   }
