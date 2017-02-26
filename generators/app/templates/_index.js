@@ -40,9 +40,9 @@ class AlexaApp {
         this.app.intent(currentIntent.name, {
           slots: currentIntent.slots,
           utterances: currentIntent.utterances
-        },currentIntent.execute);
+        },currentIntent.execute.bind(currentIntent));
       }
-    }.bind(this));    
+    }.bind(this));
   }
 }
 
