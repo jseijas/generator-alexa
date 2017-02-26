@@ -46,4 +46,4 @@ class AlexaApp {
   }
 }
 
-var alexaApp = new AlexaApp({ name: '<%= alexaName %>', port: <%= defPort %> });
+var alexaApp = new AlexaApp({ name: '<%= alexaName %>' });

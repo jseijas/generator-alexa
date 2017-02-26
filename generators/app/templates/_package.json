@@ -15,6 +15,7 @@
     "debug": "^2.2.0",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
+    "glob": "^7.1.1",
     "winston": "^2.3.0"
   },
   "devDependencies": {
