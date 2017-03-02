@@ -1,15 +1,20 @@
-var express = require('express');
 var alexa = require('alexa-app');
-var bodyParser = require('body-parser');
 var winston = require('winston');
 var glob = require('glob');
+
+if (!process.env.ISLAMBDA) {
+  var express = require('express');
+  var bodyParser = require('body-parser');
+}
 
 class AlexaApp {
   constructor(options) {
     this.name = options.name;
     this.port = options.port || process.env.PORT || 3978;
-    this.initializeServer();
     this.initializeApp();
+    if (!process.env.ISLAMBDA) {
+      this.initializeServer();
+    }
     this.loadIntents();
   }
 
@@ -21,6 +26,7 @@ class AlexaApp {
     this.server.listen(this.port);
     winston.log('info','Listening on port '+this.port);
     winston.log('info','You can access your intent information at http://localhost:'+this.port+'/echo/'+this.name);
+    this.app.express(this.server, '/echo/');
   }
 
   initializeApp() {
@@ -29,7 +35,6 @@ class AlexaApp {
         res.say('<%= welcomeAnswer %>');
         res.shouldEndSession(<%= shouldEndSession %>);
     });
-    this.app.express(this.server, '/echo/');
   }
 
   loadIntents() {
@@ -47,3 +52,7 @@ class AlexaApp {
 }
 
 var alexaApp = new AlexaApp({ name: '<%= alexaName %>' });
+
+if (process.env.ISLAMBDA) {
+  exports.handler = alexaApp.app.lambda();
+}
